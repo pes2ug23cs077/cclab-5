@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pes2ug23cs077
+  namespace: pes2ug23cs077-beta
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-custom
+  template:
+    metadata:
+      labels:
+        app: nginx-custom
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/library/pes2ug23cs077-nginx:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
